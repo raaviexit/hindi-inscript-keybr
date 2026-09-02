@@ -20,7 +20,8 @@ export function deriveSessionStats(
   const fingerErrors: Partial<Record<Finger, number>> = {};
 
   expected.forEach((unit, index) => {
-    if (actual[index] === unit) return;
+    // Omitted future characters are not errors; only a typed, mismatched unit heats a key.
+    if (actual[index] === undefined || actual[index] === unit) return;
     const key = keyForCharacter(unit.at(-1) ?? unit);
     if (!key) return;
     keyErrors[key.code] = (keyErrors[key.code] ?? 0) + 1;
@@ -34,3 +35,4 @@ export function deriveSessionStats(
     fingerErrors,
   };
 }
+
