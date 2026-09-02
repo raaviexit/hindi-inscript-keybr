@@ -74,6 +74,8 @@ export const INSCRIPT_ROWS: readonly (readonly InscriptKey[])[] = [
   ],
   [
     { code: "ShiftLeft", normal: "⇧", label: "Shift", finger: "left-pinky", width: "extra-wide" },
+    // Present only on ISO 105-key hardware; punctuation remains available in the web trainer.
+    { code: "IntlBackslash", normal: "\\", shift: "|", finger: "left-pinky" },
     { code: "KeyZ", normal: "ं", shift: "ँ", finger: "left-pinky" },
     { code: "KeyX", normal: "म", shift: "ण", finger: "left-ring" },
     { code: "KeyC", normal: "न", shift: "ऩ", finger: "left-middle" },
